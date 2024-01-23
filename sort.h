@@ -9,15 +9,15 @@
 #define DOWN 1
 
 /**
- * enum bool - Enumeration of Boolean values.
- * @false: Equals 0.
- * @true: Equals 1.
+ * enum bool_value - Enumeration of Boolean values.
+ * @FALSE: Equals 0.
+ * @TRUE: Equals 1.
  */
 typedef enum
 {
-    false = 0,
-    true
-} bool_t;
+    FALSE = 0,
+    TRUE
+} bool_value;
 
 /**
  * struct listint_s - Doubly linked list node
@@ -52,3 +52,4 @@ void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 
 #endif /* SORT_H */
+
