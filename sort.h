@@ -1,27 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef SORT_H
+#define SORT_H
+
+#include <stdbool.h>
 
 /* Comparison direction macros for bitonic sort */
 #define UP 0
 #define DOWN 1
 
-#include <stdbool.h>
-
-/* Enumeration of Boolean values */
-typedef bool;
-
-/* Constants for boolean values */
-#define false false
-#define true true
-
 /**
  * struct listint_s - Doubly linked list node
  *
- * @n: Integer stored in the node
+ * @n: Integer value stored in the node
  * @prev: Pointer to the previous node in the list
  * @next: Pointer to the next node in the list
- *
- * Description: Node structure for a doubly linked list.
  */
 typedef struct listint_s
 {
