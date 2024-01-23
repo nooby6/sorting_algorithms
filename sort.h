@@ -13,11 +13,11 @@
  * @false: Equals 0.
  * @true: Equals 1.
  */
-typedef enum bool
+typedef enum
 {
     false = 0,
     true
-} bool;
+} bool_t;
 
 /**
  * struct listint_s - Doubly linked list node
