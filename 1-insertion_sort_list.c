@@ -1,50 +1,40 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - Sorts a doubly linked list of integers in ascending order
- *                       using the Insertion Sort algorithm.
- * @list: A double pointer to the head of the linked list.
+ * insertion_sort_list - Sorts a doubly linked list of integers
+ *                       in ascending order using the Insertion sort algorithm.
  *
- * Description: Prints the list after each swap.
+ * @list: A pointer to the head of the doubly linked list.
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *prev, *temp;
-
     if (list == NULL || *list == NULL || (*list)->next == NULL)
         return;
 
-    current = (*list)->next;
+    listint_t *current, *temp;
 
+    current = (*list)->next;
     while (current != NULL)
     {
         temp = current;
-        prev = current->prev;
-
-        while (prev != NULL && temp->n < prev->n)
+        while (temp->prev != NULL && temp->n < temp->prev->n)
         {
-            /* Swap nodes */
+            /* Swap the nodes */
+            temp->prev->next = temp->next;
             if (temp->next != NULL)
-                temp->next->prev = prev;
-            if (prev->prev != NULL)
-                prev->prev->next = temp;
-            temp->prev = prev->prev;
-            prev->next = temp->next;
-            temp->next = prev;
-            prev->prev = temp;
+                temp->next->prev = temp->prev;
 
-            /* Adjust head if needed */
+            temp->next = temp->prev;
+            temp->prev = temp->prev->prev;
+            temp->next->prev = temp;
+
             if (temp->prev == NULL)
                 *list = temp;
+            else
+                temp->prev->next = temp;
 
-            /* Print list after swap */
-            print_list(*list);
-
-            /* Move to the next pair of nodes */
-            prev = temp->prev;
+            print_list(*list);  /* Print the list after each swap */
         }
-
-        /* Move to the next node in the list */
         current = current->next;
     }
 }
