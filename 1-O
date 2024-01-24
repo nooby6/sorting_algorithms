@@ -1,0 +1,3 @@
+O(1)    // Best case: Already sorted list, only one iteration needed
+O(n^2)  // Average case: Each element may need to be compared and swapped with all previous elements
+O(n^2)  // Worst case: Descending order list, maximum comparisons and swaps required
