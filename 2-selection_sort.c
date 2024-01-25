@@ -6,7 +6,10 @@
  * @array: The array to be sorted.
  * @size: The size of the array.
  *
- * Description: Prints the array after each time you swap two elements.
+ * Description:
+ * This function implements the Selection sort algorithm to sort
+ * the given array in ascending order. It prints the array after
+ * each swap operation.
  */
 void selection_sort(int *array, size_t size)
 {
@@ -28,10 +31,12 @@ void selection_sort(int *array, size_t size)
 
         if (min_index != i)
         {
+            /* Swap elements at i and min_index */
             temp = array[i];
             array[i] = array[min_index];
             array[min_index] = temp;
 
+            /* Print array after swap */
             print_array(array, size);
         }
     }
